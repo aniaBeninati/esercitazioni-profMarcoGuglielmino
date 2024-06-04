@@ -1,0 +1,30 @@
+.counter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: Arial, sans-serif;
+    margin-top: 50px;
+}
+
+.counter p {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.counter button {
+    margin: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.counter button#nascondiData {
+    background-color: #f0ad4e;
+    border: none;
+    color: white;
+}
+
+.counter button#nascondiData:hover {
+    background-color: #ec971f;
+}
