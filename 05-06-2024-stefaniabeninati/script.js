@@ -26,7 +26,7 @@ function logThis() {
 
 //Funzione per aprire la modale
 // ESERCIZIO 4 CON SETTIMEOUT 5000
-function openModal(macaronName) {
+function openModal(macaronName) {modal
     modalTitle.textContent = `Ordina ${macaronName}`;
     modal.style.display = 'block';
     document.getElementById('macaron-form').reset();
@@ -74,9 +74,31 @@ closeButton.addEventListener('click', closeModal);
 // Aggiungo l'evento di click per chiudere la modale (DA ESERCITAZIONE IL PULSANTE ANNULLA  è IL PULSANTE NO)
 cancelButton.addEventListener('click', closeModal);
 
+//ESERCIZIO 6: PIUTTOSTO CHE USARE IL BENVENUTO HO PREFERITO STAMPARE NELLA MODALE "EMAIL" O "MESSAGGIO NO EMAIL"
+// Funzione per aprire la modale
+function openWelcomeModal(message) {
+    // Seleziona la modale e il suo contenuto
+    const modal = document.getElementById('modal-email');
+    const modalMessage = document.getElementById('modal-message');
+    
+    // Imposta il messaggio nella modale
+    modalMessage.textContent = message;
+    
+    // Imposta lo stile per mostrare la modale
+    modal.style.display = 'block';
+}
 
+document.getElementById('close-button-email').addEventListener('click', () => {
+    const modal = document.getElementById('modal-email');
+    modal.style.display = 'none';
+});
 
-
-
-
-
+// Aggiungo un event listener per il pulsante di benvenuto
+welcomeButton.addEventListener('click', () => {
+    const name = nameInput.value;
+    if (name) {
+        openWelcomeModal(`La tua email è ${name}`);
+    } else {
+        openWelcomeModal('Non hai inserito la tua email!');
+    }
+});

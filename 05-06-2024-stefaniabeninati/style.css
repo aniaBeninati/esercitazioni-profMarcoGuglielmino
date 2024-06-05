@@ -175,6 +175,20 @@ text-align: center;
     overflow-y: scroll;
 }
 
+
+.modal-email {
+    display: none; /* Modale inizialmente nascosta */
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5); /* Sfondo semi-trasparente */
+}
+
+
 @media screen and (max-width: 1023px) {
     .macaron-container {
         display: flex; /* Utilizza Flexbox */
