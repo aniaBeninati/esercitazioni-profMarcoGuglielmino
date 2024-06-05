@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Macarons</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="./script.js" type="module"></script>
+</head>
+<body>
+    <!-- Titolo principale -->
+    <h1>Deliziosi Macarons</h1>
+    <h2>Qual'è il tuo gusto preferito?</h2>
+    
+    <!-- Contenitore principale per i macarons -->
+    <div class="card-container"></div>
+    <div class="macaron-container">
+        <div class="macaron" data-name="Macaron al limone">
+            <img src="./Immagini/pexels-matvalina-15832068.jpg" alt="Macaron al limone" class="macaron-img">
+            <span class="macaron-span">Macaron al limone</span>
+        </div>
+        <div class="macaron" data-name="Macaron al cioccolato">
+            <img src="./Immagini/pexels-nietjuh-2014693.jpg" alt="Macaron al cioccolato" class="macaron-img">
+            <span class="macaron-span">Macaron al cioccolato</span>
+        </div>
+        <div class="macaron" data-name="Macaron alla fragola"> 
+            <img src="./Immagini/pexels-saveurssecretes-5731549.jpg" alt="Macaron al lampone" class="macaron-img">
+            <span class="macaron-span">Macaron alla fragola</span>
+        </div>
+        <div class="macaron" data-name="Macaron al pistacchio, limone e ciliegia"> 
+            <img src="./Immagini/pexels-caricatte-16946897.jpg" alt="Macaron al lampone" class="macaron-img">
+            <span class="macaron-span">Macaron al pistacchio, limone e ciliegia</span>
+        </div>
+        <div class="macaron" data-name="Macaron al cioccolato, fragola e vaniglia"> 
+            <img src="./Immagini/pexels-snapwire-6747.jpg" alt="Macaron al lampone" class="macaron-img">
+            <span class="macaron-span">Macaron al cioccolato, fragola e vaniglia</span>
+        </div>
+        <div class="macaron" data-name="Macaron al pistacchio, mandorla e vaniglia"> 
+            <img src="./Immagini/pexels-dreamcatchlight-7296694.jpg" alt="Macaron al lampone" class="macaron-img">
+            <span class="macaron-span">Macaron al pistacchio, mandorla e vaniglia</span>
+        </div>
+    </div>
+</div>
+
+<!-- Modale per l'inserimento dei dati -->
+<div id="modal" class="modal">
+    <div class="modal-content">
+        <span class="close-button">&times;</span>
+        <p id="modal-title"></p>
+        <form id="macaron-form" class="vertical">
+            <label for="quantity">Numero di macarons:</label>
+            <input type="number" id="quantity" name="quantity" required>
+            <label for="address">Indirizzo di spedizione:</label>
+            <input type="text" id="address" name="address" required>
+            <label for="packaging">Tipo di confezione:</label>
+            <select id="packaging" name="packaging">
+                <option value="standard">Standard</option>
+                <option value="regalo">Regalo</option>
+            </select>
+            <div class="button-modal">
+                <button type="submit" id="submit-button">Invia</button>
+                <button type="button" id="cancel-button">Annulla</button>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>
