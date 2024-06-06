@@ -1,0 +1,227 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-image: url('./pexels-bohlemedia-1884584.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    padding: 20px;
+    text-align: center;
+    color: #fff;
+}
+
+h1 {
+    color: #ff4500; 
+    font-size: 3em;
+    font-weight: bold;
+}
+
+h2 {
+    color: #3d3d3d; /* Colore del testo */
+    font-size: 2em;
+    margin-bottom: 20px;
+    font-weight: bold;
+    background-color: rgba(255, 255, 255, 0.5); /* Sfondo trasparente */
+    padding: 10px; /* Padding per creare spazio intorno al testo */
+    display: inline-block; /* Mantiene il background solo intorno al testo */
+}
+/* Button */
+
+#loadProductsButton {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    margin: 20px auto;
+    display: block;
+}
+
+#loadProductsButton:hover {
+    background-color: #0056b3;
+}
+
+
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    margin-top: 50px;
+}
+
+.product-card {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    background-color: #f9f9f9;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+}
+
+.product-title {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.product-image {
+    width: 100%;
+    height: auto;
+    max-width: 200px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+}
+
+.product-price {
+    font-size: 1.2em;
+    color: #0074D9;
+    margin-bottom: 10px;
+}
+
+.product-description {
+    font-size: 1em;
+    color: #555;
+    line-height: 1.5;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+#modal-title {
+    text-align: center;
+    font-weight: bold;
+    color: #ff5733; /* Rosso arancio */
+}
+
+.modal-content {
+    background-color: #007acc; /* Blu dodger */
+    margin: 10% auto;
+    padding: 30px;
+    border: 1px solid #888;
+    width: 60%;
+    max-width: 500px;
+    text-align: left;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    color: #fff;
+}
+
+.vertical {
+    display: flex;
+    flex-direction: column;
+}
+
+.button-modal {
+    margin: 20px;
+    text-align: center;
+}
+
+.close-button {
+    color: #ccc;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: #ff4500; /* Rosso arancio */
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.parent-element {
+    margin: 20px 0;
+}
+
+.child-button {
+    margin: 5px;
+    padding: 10px 20px;
+    background-color: #ff6347; /* Rosso pomodoro */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    transition: background-color 0.3s, transform 0.3s;
+    color: #fff;
+}
+
+.child-button:hover {
+    background-color: #ff4500; /* Rosso arancio */
+    transform: scale(1.05);
+}
+
+.input-section {
+    margin: 20px 0;
+}
+
+.input-section input, 
+.input-section button {
+    padding: 10px;
+    font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 5px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.input-section button {
+    background-color: #ff6347; /* Rosso pomodoro */
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    color: #fff;
+}
+
+.input-section button:hover {
+    background-color: #ff4500; /* Rosso arancio */
+    transform: scale(1.05);
+}
+
+#event-log {
+    margin: 20px 0;
+    background-color: #f5f5f5;
+    padding: 10px;
+    border: 1px solid #ccc;
+    height: 100px;
+    overflow-y: scroll;
+    color: #333;
+}
+
+.modal-email {
+    display: none; 
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8); 
+}
+
+@media screen and (max-width: 1023px) {
+    .product-container {
+        display: flex; 
+        flex-direction: column; 
+        align-items: center; 
+    }
+}
