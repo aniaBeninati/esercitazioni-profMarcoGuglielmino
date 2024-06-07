@@ -8,6 +8,7 @@ const topRated = document.getElementById ('topRated');
 const topPopular = document.getElementById ('topPopular');
 
 const url = 'https://api.themoviedb.org/3/movie';
+
 const urlPopular = url + "/popular";
 const urlRated = url + '/top_rated';
 
@@ -17,17 +18,10 @@ let movies = [];
 let currentPage = 1;
 let totalPages = 1;
 
-const options = { //Esercizio 1: Effettuiamo la chiamata all'API di MovieDB e stampiamo a DOM le card dei movies ottenuti all'endpoin
-    method: 'GET',
-    headers: {
-        accept: 'application/json',
-        Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJmMTBhY2YwYmVjMDE3ODMxMmJhN2FiY2E4NmZmZTI0NiIsInN1YiI6IjY2NjJmZjI4ZjE1MDFjZWZkYTgzNDM5MyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.VJQwodW4q8zE1XWp6RIFBHl3rUBzX_3Sbyp4KH2Bz8o'
-    }
-};
 
 
 const fetchMovies = (page = 1) => {
-    fetch(api_current + "?page=" + page, options)
+    fetch(api_current + "?page=" + page)
         .then(response => response.json())
         .then(data => {
             movies = data.results;
