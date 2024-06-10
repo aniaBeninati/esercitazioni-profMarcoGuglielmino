@@ -31,32 +31,6 @@ const fetchMovies = async (page = 1) => {
     }
 };
 
-const updatePagination = () => {
-    pageIndicator.textContent = `Pagina ${currentPage}`;
-    prevPageBtn.disabled = currentPage === 1;
-    nextPageBtn.disabled = currentPage === totalPages;
-};
-
-searchBar.addEventListener('keyup', (e) => {
-    const searchString = e.target.value.toLowerCase();
-    const filteredMovies = movies.filter(movie => {
-        return movie.title.toLowerCase().includes(searchString);
-    });
-    displayMovies(filteredMovies);
-}); 
-
-prevPageBtn.addEventListener('click', () => {
-    if (currentPage > 1) {
-        fetchMovies(currentPage - 1);
-    }
-});
-
-nextPageBtn.addEventListener('click', () => {
-    if (currentPage < totalPages) {
-        fetchMovies(currentPage + 1);
-    }
-});
-
 const displayMovies = (movies) => {
     containerEl.innerHTML = '';
     movies.forEach(movie => {
@@ -71,15 +45,42 @@ const displayMovies = (movies) => {
     });
 };
 
+
+const updatePagination = () => {
+    pageIndicator.textContent = `Pagina ${currentPage}`;
+    prevPageBtn.disabled = currentPage === 1;
+    nextPageBtn.disabled = currentPage === totalPages;
+};
+
+prevPageBtn.addEventListener('click', () => {
+    if (currentPage > 1) {
+        fetchMovies(currentPage - 1);
+    }
+});
+
+nextPageBtn.addEventListener('click', () => {
+    if (currentPage < totalPages) {
+        fetchMovies(currentPage + 1);
+    }
+});
+
+
 topRated.addEventListener('click', () => {
     api_current = urlRated;
     fetchMovies();
 });
 
-    topPopular.addEventListener('click', () => {
-        api_current = urlPopular;
-        fetchMovies();
-    });
+topPopular.addEventListener('click', () => {
+    api_current = urlPopular;
+    fetchMovies();
+});
 
-// Fetch initial set of movies
+searchBar.addEventListener('keyup', (e) => {
+    const searchString = e.target.value.toLowerCase();
+    const filteredMovies = movies.filter(movie => {
+        return movie.title.toLowerCase().includes(searchString);
+    });
+    displayMovies(filteredMovies);
+}); 
+
 fetchMovies();
