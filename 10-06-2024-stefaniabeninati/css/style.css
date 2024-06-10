@@ -106,8 +106,8 @@ h2 {
 }
 
 
-#topRated,
-#topPopular {
+#serieTv,
+#film {
     padding: 10px 20px;
     margin: 10px;
     border: none;
@@ -119,8 +119,8 @@ h2 {
     transition: background-color 0.3s;
 }
 
-#topRated:hover,
-#topPopular:hover {
+#serieTv:hover,
+#film:hover {
     background-color: #e88e0f; 
 }
 
