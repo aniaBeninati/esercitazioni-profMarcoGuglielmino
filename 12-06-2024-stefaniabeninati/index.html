@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form Post</title>
+    <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+    <form
+    action="submit"
+    style="display: flex; flex-direction: column; max-width: 300px; gap: 12px">
+    <input class="title" type="text" placeholder="title" />
+    <input class="price" type="number" placeholder="price" />
+    <input class="description" type="text" placeholder="description" />
+    <input class="category-id" type="number" placeholder="category id" />
+    <input class="images" type="text" placeholder="images" />
+    <button class="button-form">send</button>
+    <input class="delete" type="text" placeholder="ID delete" />
+    <button class="button-delete">delete</button>
+    <div class="card-container"></div>
+</form>
+<script type="module" src="./index.js"></script>
+</body>
+</html>
