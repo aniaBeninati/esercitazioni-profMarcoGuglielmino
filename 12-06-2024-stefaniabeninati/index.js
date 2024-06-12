@@ -54,7 +54,7 @@ buttonDeleteEl.addEventListener('click', e => {
 deleteById().then(()=>{
         const movieCard  = document.createElement('div');
         movieCard.innerHTML = `
-        <p>${"Oggetto rimosso"}</p>`;
+        <p>${"Item Removed"}</p>`;
         containerEl.appendChild(movieCard);
         setTimeout(function(){
             containerEl.innerHTML="";
