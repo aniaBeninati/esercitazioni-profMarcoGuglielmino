@@ -12,7 +12,6 @@ const buttonDeleteEl = document.querySelector('.button-delete');
 const buttonPutEl = document.querySelector('.button-put');
 const inputSelectByIdEl = document.querySelector('.select-by-id');
 const buttonSelectorByIdEl = document.querySelector('.button-selectbyid');
-const formMain = document.querySelector('.main');
 
 const containerEl = document.querySelector(".card-container");
 
@@ -22,21 +21,16 @@ const descriptionErrorMessage = document.querySelector(".description-error");
 const categoryErrorMessage = document.querySelector(".category-error");
 const imagesErrorMessage = document.querySelector(".images-error");
 
-const formGetByID = document.querySelector("#formGetId");
-
-const username = document.getElementById('username');
-const password = document.getElementById('password');
-const buttonLoginEl = document.querySelector('.button-login');
+/*Esercizio 1: Abbiamo visto oggi la possibilità di utilizzare altri due metodi http ovvero PUT  e PATCH , 
+sempre sulla base della fantastica api: https://api.escuelajs.co/ dopo aver creato un 
+prodotto con il metodo POST modifichiamolo in parte o interamente, verificate che effettivamente 
+il nostro prodotto è stato aggiornato sul database facendo un getById dello stesso*/
 
 const apiProductsPost = `https://api.escuelajs.co/api/v1/products`;
 let ritornoIdChiamata; //variabile che chiama ID
 
 //AZIONE
-buttonFormEl.addEventListener('click', e => {//Esercizio 1: inseriamo dei check di controllo al nostro form, verifichiamo che effettivamente sia stato inserito un title, una description etc, non lasciamoli vuoti (o con il require o con un check sul value degli input)
-    if (!formMain.checkValidity()) {
-        // Se il form non è valido, lascia che la validazione HTML5 gestisca l'errore
-        return;
-    }
+buttonFormEl.addEventListener('click', e => {
     e.preventDefault(); //viene utilizzata in JavaScript per prevenire evento
     const data = {
         title: inputTitleEl.value,
@@ -129,28 +123,13 @@ const PUT = async (product) => {
     return data;
 }
 
-//Esercizio 3 (Opzionale): inseriamo un trycatch che verifica se la chiamata API al getbyID del search effettivamente non trova nessuna risorsa e stampa a DOM "il prodotto che stai cercando non esiste"
+//DICHIARO LA FUNZIONE PER VERIFICARE SE HA PRESO LE MODIFICHE CON PUT
 const GETBYID = async (id) => {
-    try {
-        const risultato = await fetch(apiProductsPost + "/" + id);
-        if (!risultato.ok) {
-            throw new Error("il prodotto che stai cercando non esiste");
-        }
-        const objResp = await risultato.json();
-        console.log(objResp);
-        return objResp;
-    } catch (error) {
-        const movieCard  = document.createElement('div');
-        movieCard.innerHTML = `
-        <p>${error}</p>`;
-        containerEl.appendChild(movieCard);
-        setTimeout(function(){
-            containerEl.innerHTML="";
-        }, 10000)
-        throw err;
-    }
-};
-
+    const risultato = await fetch (apiProductsPost+"/"+id);
+    const objResp = await risultato.json(); 
+    console.log(objResp);
+    return objResp;
+}
 
 //AZIONE
 buttonDeleteEl.addEventListener('click', e => {
@@ -183,10 +162,6 @@ const deleteById = async () => {
 
 //AZIONE Esercizio 5 
 buttonSelectorByIdEl.addEventListener('click', e => {
-    if (!formGetByID.checkValidity()) {
-        // Se il form non è valido, lascia che la validazione HTML5 gestisca l'errore
-        return;
-    } else {
     e.preventDefault(); //viene utilizzata in JavaScript per prevenire evento
     GETBYID(inputSelectByIdEl.value).then(obj => {//con il then che ci indica che abbiamo finito, prendo id salvo nella variabile ed in fine stampo in console
         inputTitleEl.value = obj.title;
@@ -195,22 +170,4 @@ buttonSelectorByIdEl.addEventListener('click', e => {
         inputCategoryEl.value = obj.category.id;
         inputImagesEl.value = obj.images[0];
     });
-}
-})
-
-buttonLoginEl.addEventListener('click', e => {
-    e.preventDefault(); 
-
-    if (localStorage.getItem('username')) {
-        localStorage.removeItem('username')
-        buttonLoginEl.textContent = "Login";
-        username.value = "";
-        password.value="";
-
-    } else {
-        localStorage.setItem('username', username.value);
-        buttonLoginEl.textContent = "Logout";
-    }
-
-
 })
