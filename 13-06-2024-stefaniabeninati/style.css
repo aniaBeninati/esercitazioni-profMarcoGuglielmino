@@ -1,63 +1,130 @@
-/* styles.css */
 body {
-    font-family: Arial, sans-serif;
-    background: #f0f2f5;
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(135deg, #f5af19, #f12711);
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* Centra gli elementi orizzontalmente */
+    gap: 20px;
+    width: 100%;
+    max-width: 400px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
 }
 
 form {
-    background: #ffffff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
-    max-width: 300px;
+    width: 100%;
     gap: 12px;
+    padding: 20px;
 }
 
-input, button {
+form h2 {
+    margin: 0 0 12px 0;
+    color: #333;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="password"] {
     padding: 10px;
     border: 1px solid #ddd;
-    border-radius: 5px;
+    border-radius: 4px;
     font-size: 16px;
-}
-
-input:focus {
-    outline: none;
-    border-color: #007bff;
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    width: calc(100% - 22px);
 }
 
 button {
-    background: #007bff;
-    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
     cursor: pointer;
-    transition: background 0.3s ease;
+    margin-top: 8px;
 }
 
-button:hover {
-    background: #0056b3;
+.button-form {
+    background-color: #28a745;
+    color: #fff;
+}
+
+.button-form:hover {
+    background-color: #218838;
+}
+
+.button-put {
+    background-color: #17a2b8;
+    color: #fff;
+}
+
+.button-put:hover {
+    background-color: #138496;
+}
+
+.button-delete {
+    background-color: #dc3545;
+    color: #fff;
+}
+
+.button-delete:hover {
+    background-color: #c82333;
+}
+
+.button-selectbyid {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.button-selectbyid:hover {
+    background-color: #0069d9;
+}
+
+.button-login {
+    background-color: #ffc107;
+    color: #fff;
+}
+
+.button-login:hover {
+    background-color: #e0a800;
+}
+
+.title-error,
+.price-error,
+.description-error,
+.category-error,
+.images-error {
+    color: red;
+    font-size: 14px;
+    margin: 0;
 }
 
 .card-container {
     margin-top: 20px;
+    width: 100%;
 }
 
-.card-container div {
-    background: #ffffff;
-    padding: 15px;
-    border-radius: 5px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    margin-bottom: 10px;
-    animation: fadeIn 0.5s;
-}
+/* Responsive Design */
+@media (max-width: 600px) {
+    .container {
+        max-width: 100%;
+        padding: 10px;
+    }
 
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+    input[type="text"],
+    input[type="number"],
+    input[type="password"] {
+        width: calc(100% - 22px);
+    }
 }
